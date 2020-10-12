@@ -1,0 +1,14 @@
+version: '3.1'
+services:
+  bot:
+    image: hexanyn/spotibot
+    container_name: spotibot
+    volumes:
+    - ./bot:/data
+    - /tmp/.X11-unix:/tmp/.X11-unix
+    ports:
+    - 127.0.0.1:60680:60680
+    environment:
+      DISPLAY: $DISPLAY
+    env_file: spotibot.env
+    restart: always
